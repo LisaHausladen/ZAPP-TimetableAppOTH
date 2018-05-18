@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">AppProject</string>
+    <string name="timetable">Timetable</string>
+    <string name="calendar">Calendar</string>
+    <string name="canteen_menu">Canteen menu</string>
+    <string name="links">Links:</string>
+    <string name="notice_board">Notice board</string>
+    <string name="oth_homepage">OTH Homepage</string>
+    <string name="grips">GRIPS</string>
+    <string name="oth_webmail">OTH Webmail</string>
+    <string name="qis">QIS</string>
+    <string name="fsim">FSIM</string>
+    <string name="elective_modules">Elective modules</string>
+    <string name="customise_timetable">customise timetable</string>
+    <string name="settings">Settings</string>
+    <string name="pick_studyCourse">pick study course</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="manageCourses">manage courses</string>
+    <string name="manageExerciseCourses">manage excersize courses</string>
+    <string name="importCourses">import courses</string>
+    <string name="longNames">Lange Namen</string>
+    <string name="shortNames">Kurze Namen</string>
+</resources>
