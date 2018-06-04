@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.io.IOException;
 
+
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -32,7 +33,7 @@ public class NetworkUtils {
 
     public String buildJSONString (String id, String methodName, Object parameters) {
         JSONObject object = new JSONObject();
-        object.fluentPut("id", id);
+        object.put("id", id);
         object.put("method", methodName);
         object.put("params", parameters);
         object.put("jsonrpc", "2.0");
@@ -57,13 +58,22 @@ public class NetworkUtils {
     }
 
     public void setup() {
-        String authentification = authenticate();
-        parseObject(authentification, JSONObject.class);
-        //TODO: sessionID herausfinden und speichern
-        System.out.println(authentification);
+        String authentication = authenticate();
+        JSONAuthenticationResponse response = parseObject(authentication, JSONAuthenticationResponse.class);
 
-        //System.out.println(sessionID);
-        //post(URL, buildJSONString(sessionID,"getSubjects", ""));
+        System.out.println(authentication);
+        this.sessionID = response.getResult().getSessionId();
+        System.out.println(sessionID);
+        try {
+            String jsonString = buildJSONString(sessionID,"getSubjects", "");
+            System.out.println("json: " + jsonString);
+            String subjectResponse = post(URL, jsonString);
+            System.out.println(subjectResponse);
+            //JSONResponse res = parseObject(subjectResponse, JSONResponse.class);
+            //toJavaObject(res.getResult(), ArrayList<Subject>.getClass());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //TODO: alle Daten holen und auslesen/speichern
     }
 

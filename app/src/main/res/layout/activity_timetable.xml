@@ -31,12 +31,12 @@
                 android:layout_width="match_parent"
                 android:gravity="center_horizontal">
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/textViewStudyGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:text="Stundenplan für Studiengang I?"
+                    android:text="Stundenplan für Studiengang"
                     android:layout_span="6"></TextView>
             </TableRow>
             <TableRow

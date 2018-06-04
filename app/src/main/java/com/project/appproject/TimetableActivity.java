@@ -12,12 +12,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class TimetableActivity extends AppCompatActivity {
     String studyCourse;
-    //ArrayList studyCourses = new ArrayList<String>();
-    CharSequence[] studyCourses = new CharSequence[] {"IN1", "IN2", "IN3"};
+    String[] studyCourses = new String[] {"IN1", "IN2", "IN3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,10 @@ public class TimetableActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         if(studyCourse == null) {
 
-            onCreateDialog(new Bundle());
+            onCreateDialog(savedInstanceState).show();
+            TextView pickedStudyCourseText = findViewById(R.id.textViewStudyGroup);
+            pickedStudyCourseText.setText(studyCourse);
+            //pickedStudyCourseText.append(studyCourse);
         }
     }
 
@@ -66,11 +69,12 @@ public class TimetableActivity extends AppCompatActivity {
                 // Specify the list array, the items to be selected by default (null for none),
                 // and the listener through which to receive callbacks when items are selected
         builder.setSingleChoiceItems(studyCourses, -1,
-                        new OnClickListener() {
+                        new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Log.d("TAG","ausgewählt");
-                                //studyCourse = studyCourses.get(which);
+                                studyCourse = studyCourses[which];
+                                dialog.dismiss();
                                 //TODO: geht noch nicht
                         }});
 

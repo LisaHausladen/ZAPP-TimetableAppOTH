@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".TimetableActivity" />
+        <activity android:name=".TimetableSettingsActivity" />
+        <activity android:name=".CustomiseTimetableActivity" />
         <activity android:name=".CalendarActivity" />
     </application>
 
