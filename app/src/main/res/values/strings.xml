@@ -24,6 +24,8 @@
     <string name="manageCourses">manage courses</string>
     <string name="manageExerciseCourses">manage excersize courses</string>
     <string name="importCourses">import courses</string>
-    <string name="longNames">Lange Namen</string>
-    <string name="shortNames">Kurze Namen</string>
+    <string name="longNames">long names</string>
+    <string name="shortNames">short names</string>
+    <string name="defaultNoGroup">no study group chosen</string>
+    <string name="time">Time</string>
 </resources>

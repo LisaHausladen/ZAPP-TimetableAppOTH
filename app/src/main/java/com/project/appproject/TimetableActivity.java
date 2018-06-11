@@ -2,7 +2,6 @@ package com.project.appproject;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -16,8 +15,8 @@ import android.widget.TextView;
 
 
 public class TimetableActivity extends AppCompatActivity {
-    String studyCourse;
-    String[] studyCourses = new String[] {"IN1", "IN2", "IN3"};
+    String studyGroup;
+    String[] studyGroups = new String[] {"IN1", "IN2", "IN3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +24,11 @@ public class TimetableActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timetable);
         Toolbar toolbar = findViewById(R.id.timetable_toolbar);
         setSupportActionBar(toolbar);
-        if(studyCourse == null) {
+        if(studyGroup == null) {
 
             onCreateDialog(savedInstanceState).show();
-            TextView pickedStudyCourseText = findViewById(R.id.textViewStudyGroup);
-            pickedStudyCourseText.setText(studyCourse);
-            //pickedStudyCourseText.append(studyCourse);
+            TextView pickedStudyGroupText = findViewById(R.id.textViewStudyGroup);
+            pickedStudyGroupText.setText(studyGroup);
         }
     }
 
@@ -68,12 +66,12 @@ public class TimetableActivity extends AppCompatActivity {
         builder.setTitle(R.string.pick_studyCourse);
                 // Specify the list array, the items to be selected by default (null for none),
                 // and the listener through which to receive callbacks when items are selected
-        builder.setSingleChoiceItems(studyCourses, -1,
+        builder.setSingleChoiceItems(studyGroups, -1,
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Log.d("TAG","ausgewählt");
-                                studyCourse = studyCourses[which];
+                                studyGroup = studyGroups[which];
                                 dialog.dismiss();
                                 //TODO: geht noch nicht
                         }});

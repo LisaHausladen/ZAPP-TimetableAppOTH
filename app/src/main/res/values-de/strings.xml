@@ -26,4 +26,6 @@
     <string name="importCourses">Veranstaltungen importieren</string>
     <string name="longNames">Lange Namen</string>
     <string name="shortNames">Kurze Namen</string>
+    <string name="defaultNoGroup">kein Studiengang ausgewählt</string>
+    <string name="time">Zeit</string>
 </resources>

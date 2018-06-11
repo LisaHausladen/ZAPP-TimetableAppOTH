@@ -5,8 +5,6 @@ public class StudyGroup {
     private String name;
     private String longName;
     private boolean active;
-    private String foreColor;
-    private String backColor;
     private String did;
 
     public int getId() {
@@ -39,22 +37,6 @@ public class StudyGroup {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public String getForeColor() {
-        return foreColor;
-    }
-
-    public void setForeColor(String foreColor) {
-        this.foreColor = foreColor;
-    }
-
-    public String getBackColor() {
-        return backColor;
-    }
-
-    public void setBackColor(String backColor) {
-        this.backColor = backColor;
     }
 
     public String getDid() {
