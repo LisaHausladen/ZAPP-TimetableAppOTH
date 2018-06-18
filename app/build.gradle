@@ -30,4 +30,6 @@ dependencies {
     implementation 'com.android.support:design:27.0.2'
     implementation files('libs/okhttp-3.10.0.jar')
     implementation files('libs/fastjson-1.2.47.jar')
+    implementation 'android.arch.persistence.room:runtime:1.1.1-rc1'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1-rc1'
 }

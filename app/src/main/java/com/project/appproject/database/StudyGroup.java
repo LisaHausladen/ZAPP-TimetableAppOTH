@@ -1,11 +1,17 @@
-package com.project.appproject;
+package com.project.appproject.database;
 
-public class Subject {
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity(tableName = "studyGroups")
+public class StudyGroup {
+    @PrimaryKey
     private int id;
+    @ColumnInfo(name = "name")
     private String name;
+    @ColumnInfo(name = "longName")
     private String longName;
-    private String foreColor;
-    private String backColor;
 
     public int getId() {
         return id;
@@ -31,19 +37,4 @@ public class Subject {
         this.longName = longName;
     }
 
-    public String getForeColor() {
-        return foreColor;
-    }
-
-    public void setForeColor(String foreColor) {
-        this.foreColor = foreColor;
-    }
-
-    public String getBackColor() {
-        return backColor;
-    }
-
-    public void setBackColor(String backColor) {
-        this.backColor = backColor;
-    }
 }
