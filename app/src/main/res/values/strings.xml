@@ -28,4 +28,6 @@
     <string name="shortNames">short names</string>
     <string name="defaultNoGroup">no study group chosen</string>
     <string name="time">Time</string>
+    <string name="semester_planer">Semester planer</string>
+    <string name="change_study_group">Change study group</string>
 </resources>

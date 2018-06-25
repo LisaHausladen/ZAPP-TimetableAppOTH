@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.alibaba.fastjson.JSONObject;
-import com.project.appproject.Lesson;
+import com.project.appproject.database.Lesson;
 import com.project.appproject.database.Room;
 import com.project.appproject.database.StudyGroup;
 import com.project.appproject.database.Subject;
@@ -12,6 +12,7 @@ import com.project.appproject.database.Teacher;
 import com.project.appproject.database.TimetableDatabase;
 
 import java.io.IOException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,10 +33,6 @@ public class NetworkUtils {
     private static final String URL = "https://untis.othr.de/WebUntis/jsonrpc.do?school=OTH-Regensburg";
     private static OkHttpClient client = new OkHttpClient();
     private static String sessionID = "";
-
-    public static void main(String[] args) {
-        //new NetworkUtils().setup();
-    }
 
     static String post(String url, String json) throws IOException {
         RequestBody body = RequestBody.create(JSON, json);
@@ -73,38 +70,61 @@ public class NetworkUtils {
     }
 
     public void setup(Context context) {
+        startSession();
+        TimetableDatabase db = TimetableDatabase.getInstance(context);
+        Subject[] subjects = toJavaObject((com.alibaba.fastjson.JSON) getResponseData("getSubjects", ""), Subject[].class);
+        db.subjectDao().insertAll(subjects);
+        Room[] rooms = toJavaObject((com.alibaba.fastjson.JSON) getResponseData("getRooms", ""), Room[].class);
+        db.roomDao().insertAll(rooms);
+        //derzeit noch keine Rechte für Teachers
+        try {
+            Teacher[] teachers = toJavaObject((com.alibaba.fastjson.JSON) getResponseData("getTeachers","" ), Teacher[].class);
+            if (teachers != null && teachers.length > 0) {
+                db.teacherDao().insertAll(teachers);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        StudyGroup[] studyGroups = toJavaObject((com.alibaba.fastjson.JSON) getResponseData("getKlassen", ""), StudyGroup[].class);
+        db.studyGroupDao().insertAll(studyGroups);
+
+        System.out.println("ende");
+    }
+
+    private void startSession() {
         String authentication = authenticate();
         identifySessionID(authentication);
         Cookie sessionCookie = createCookie();
         setCookie(sessionCookie);
-
-        Subject[] subjects = toJavaObject((com.alibaba.fastjson.JSON) getResponseData("getSubjects", ""), Subject[].class);
-        TimetableDatabase.getInstance(context).subjectDao().insertAll(subjects);
-        Room[] rooms = toJavaObject((com.alibaba.fastjson.JSON) getResponseData("getRooms", ""), Room[].class);
-        //keine Rechte für Teachers
-        //TODO insertAll bei allen verwenden
-        Teacher[] teachers = toJavaObject((com.alibaba.fastjson.JSON) getResponseData("getTeachers","" ), Teacher[].class);
-        StudyGroup[] studyGroups = toJavaObject((com.alibaba.fastjson.JSON) getResponseData("getKlassen", ""), StudyGroup[].class);
-        for (StudyGroup studyGroup : studyGroups) {
-            TimetableDatabase.getInstance(context).studyGroupDao().insert(studyGroup);
-        }
-        System.out.println("ende");
-
     }
 
-    public Lesson[] getLessons(StudyGroup studyGroup){
-        Lesson[] lessons;
-        String params = "{\"id\": " + studyGroup.getId() + ",\"type\":1}";
+    public void getLessons(StudyGroup studyGroup, Context context){
+        startSession();
+        LessonWrapper[] lessonWrappers;
+        System.out.println("set breakpoints now");
+        JSONObject params = new JSONObject();
+        params.put("id", studyGroup.getId());
+        params.put("type", 1);
+        params.put("startDate", 20180618);
+        params.put("endDate" , 20180622);
         Object data = getResponseData("getTimetable", params);
-        lessons = toJavaObject((com.alibaba.fastjson.JSON) data, Lesson[].class);
-        //TODO: lessons in Datenbank speichern?
-        return lessons;
+        //TODO geht hier nicht weiter
+        //lessonWrappers = toJavaObject((com.alibaba.fastjson.JSON) data, LessonWrapper[].class);
+        System.out.println("Got data");
+        //TODO convert LessonWrapper to Lesson
+        /*Lesson[] lessons = new Lesson[lessonWrappers.length];
+        for (int i = 0; i < lessonWrappers.length; i++) {
+            LessonWrapper lessonWrapper = lessonWrappers[i];
+            lessons[i] = lessonWrapper.unwrap(studyGroup);
+        }*/
+        //TimetableDatabase.getInstance(context).lessonDao().updateAll(lessons);
     }
 
-    private Object getResponseData(String methodName, String parameters) {
+    private Object getResponseData(String methodName, Object parameters) {
         try {
             String response = post(URL, buildJSONString(sessionID,methodName, parameters));
             JSONResponse jsonResponse = parseObject(response, JSONResponse.class);
+            System.out.println(jsonResponse.getResult());
             return jsonResponse.getResult();
         } catch (IOException e) {
             e.printStackTrace();
@@ -128,7 +148,6 @@ public class NetworkUtils {
                     .secure()
                     .build();
     }
-
 
     private void setCookie(final Cookie cookie) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();

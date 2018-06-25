@@ -16,6 +16,9 @@ public interface RoomDao {
     @Insert
     void insert(Room room);
 
+    @Insert
+    void insertAll(Room... rooms);
+
     @Delete
     void delete(Room room);
 }

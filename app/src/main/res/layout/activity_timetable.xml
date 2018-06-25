@@ -118,22 +118,22 @@
                     android:minWidth="30dp"
                     android:gravity="center_horizontal"
                     android:scrollHorizontally="false"
-                    android:text="AD"></TextView>
+                    android:text="-"></TextView>
 
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/tuesdayLesson1"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="MA"
+                    android:text="-"
                     android:id="@+id/wednesdayLesson1"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="PG"
+                    android:text="-"
                     android:id="@+id/thursdayLesson1"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/fridayLesson1"
                     android:gravity="center_horizontal"></TextView>
 
@@ -158,21 +158,21 @@
                     android:id="@+id/mondayLesson2"
                     android:minWidth="30dp"
                     android:gravity="center_horizontal"
-                    android:text="AD"></TextView>
+                    android:text="-"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/tuesdayLesson2"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="MA"
+                    android:text="-"
                     android:id="@+id/wednesdayLesson2"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="PG"
+                    android:text="-"
                     android:id="@+id/thursdayLesson2"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/fridayLesson2"
                     android:gravity="center_horizontal"></TextView>
 
@@ -197,21 +197,21 @@
                     android:id="@+id/mondayLesson3"
                     android:minWidth="30dp"
                     android:gravity="center_horizontal"
-                    android:text="AD"></TextView>
+                    android:text="-"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/tuesdayLesson3"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="MA"
+                    android:text="-"
                     android:id="@+id/wednesdayLesson3"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="PG"
+                    android:text="-"
                     android:id="@+id/thursdayLesson3"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/fridayLesson3"
                     android:gravity="center_horizontal"></TextView>
 
@@ -236,21 +236,21 @@
                     android:id="@+id/mondayLesson4"
                     android:minWidth="30dp"
                     android:gravity="center_horizontal"
-                    android:text="AD"></TextView>
+                    android:text="-"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/tuesdayLesson4"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="MA"
+                    android:text="-"
                     android:id="@+id/wednesdayLesson4"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="PG"
+                    android:text="-"
                     android:id="@+id/thursdayLesson4"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/fridayLesson4"
                     android:gravity="center_horizontal"></TextView>
 
@@ -275,21 +275,21 @@
                     android:id="@+id/mondayLesson5"
                     android:minWidth="30dp"
                     android:gravity="center_horizontal"
-                    android:text="AD"></TextView>
+                    android:text="-"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/tuesdayLesson5"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="MA"
+                    android:text="-"
                     android:id="@+id/wednesdayLesson5"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="PG"
+                    android:text="-"
                     android:id="@+id/thursdayLesson5"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/fridayLesson5"
                     android:gravity="center_horizontal"></TextView>
 
@@ -313,22 +313,60 @@
                     android:id="@+id/mondayLesson6"
                     android:minWidth="30dp"
                     android:gravity="center_horizontal"
-                    android:text="AD"></TextView>
+                    android:text="-"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/tuesdayLesson6"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="MA"
+                    android:text="-"
                     android:id="@+id/wednesdayLesson6"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="PG"
+                    android:text="-"
                     android:id="@+id/thursdayLesson6"
                     android:gravity="center_horizontal"></TextView>
                 <TextView
-                    android:text="OS"
+                    android:text="-"
                     android:id="@+id/fridayLesson6"
+                    android:gravity="center_horizontal"></TextView>
+
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:id="@+id/tableRowLesson7"
+                android:layout_width="match_parent">
+                <TextView
+                    android:text="18:45-20:15"
+                    android:id="@+id/textViewLesson7"
+                    android:maxWidth="30dp"></TextView>
+
+                <View
+                    android:id="@+id/divider13"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/mondayLesson7"
+                    android:minWidth="30dp"
+                    android:gravity="center_horizontal"
+                    android:text="-"></TextView>
+                <TextView
+                    android:text="-"
+                    android:id="@+id/tuesdayLesson7"
+                    android:gravity="center_horizontal"></TextView>
+                <TextView
+                    android:text="-"
+                    android:id="@+id/wednesdayLesson7"
+                    android:gravity="center_horizontal"></TextView>
+                <TextView
+                    android:text="-"
+                    android:id="@+id/thursdayLesson7"
+                    android:gravity="center_horizontal"></TextView>
+                <TextView
+                    android:text="-"
+                    android:id="@+id/fridayLesson7"
                     android:gravity="center_horizontal"></TextView>
 
             </TableRow>
@@ -336,5 +374,30 @@
         </TableLayout>
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/buttonUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Press to update"
+        android:onClick="updateView"/>
+
+    <ProgressBar
+        android:id="@+id/taskProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="invisible"
+        android:layout_margin="10dp"
+        />
+    <TextView
+        android:id="@+id/taskTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/taskProgressBar"
+        android:layout_gravity="bottom|center_horizontal"
+        app:layout_anchorGravity="bottom|center_horizontal"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"/>
 
 </LinearLayout>

@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-@Database(entities = {StudyGroup.class, com.project.appproject.database.Room.class, Subject.class, Teacher.class}, version = 1)
+@Database(entities = {StudyGroup.class, com.project.appproject.database.Room.class, Subject.class, Teacher.class, Lesson.class}, version = 1)
 public abstract class TimetableDatabase extends RoomDatabase {
 
     private static final String DATABASE_NAME = "timetable";
@@ -31,5 +31,7 @@ public abstract class TimetableDatabase extends RoomDatabase {
     public abstract RoomDao roomDao();
 
     public abstract TeacherDao teacherDao();
+
+    public abstract LessonDao lessonDao();
 
 }

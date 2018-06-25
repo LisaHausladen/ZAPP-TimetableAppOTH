@@ -16,10 +16,16 @@ public interface StudyGroupDao {
     @Insert
     void insert(StudyGroup studyGroup);
 
+    @Insert
+    void insertAll(StudyGroup... groups);
+
     @Delete
     void delete(StudyGroup studyGroup);
 
-    @Query("SELECT * FROM studyGroups WHERE name LIKE 'IN_'")
+    @Query("SELECT * FROM studyGroups WHERE id = :id")
+    StudyGroup getStudyGroupById(int id);
+
+    @Query(value = "SELECT * FROM studyGroups WHERE name LIKE 'I%'")
     List<StudyGroup> getINStudyGroups();
 
 }

@@ -28,4 +28,6 @@
     <string name="shortNames">Kurze Namen</string>
     <string name="defaultNoGroup">kein Studiengang ausgewählt</string>
     <string name="time">Zeit</string>
+    <string name="semester_planer">Semesterplaner</string>
+    <string name="change_study_group">Studiengang ändern</string>
 </resources>

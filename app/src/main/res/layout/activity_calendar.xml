@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
+
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/calendar_toolbar"
@@ -18,10 +21,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:clickable="false"
+            android:showWeekNumber="true"
+            android:firstDayOfWeek="2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Terminplan..."/>
+            android:layout_height="wrap_content" />
 
     </ScrollView>
 

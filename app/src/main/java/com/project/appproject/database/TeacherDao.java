@@ -16,6 +16,9 @@ public interface TeacherDao {
     @Insert
     void insert(Teacher teacher);
 
+    @Insert
+    void insertAll(Teacher... teachers);
+
     @Delete
     void delete(Teacher teacher);
 }
