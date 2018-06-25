@@ -1,7 +1,10 @@
 package com.project.appproject.utilities;
 
 import com.project.appproject.database.Lesson;
+import com.project.appproject.database.Room;
 import com.project.appproject.database.StudyGroup;
+import com.project.appproject.database.Subject;
+import com.project.appproject.database.Teacher;
 
 public class LessonWrapper {
 
@@ -9,10 +12,10 @@ public class LessonWrapper {
     private String date;
     private String startTime;
     private String endTime;
-    private int[] su;
-    private int[] ro;
-    private int[] te;
-    private int[] kl;
+    private Subject[] su;
+    private Room[] ro;
+    private Teacher[] te;
+    private StudyGroup[] kl;
 
     public int getId() {
         return id;
@@ -46,44 +49,44 @@ public class LessonWrapper {
         this.endTime = endTime;
     }
 
-    public int[] getSu() {
+    public Subject[] getSu() {
         return su;
     }
 
-    public void setSu(int[] su) {
+    public void setSu(Subject[] su) {
         this.su = su;
     }
 
-    public int[] getRo() {
+    public Room[] getRo() {
         return ro;
     }
 
-    public void setRo(int[] ro) {
+    public void setRo(Room[] ro) {
         this.ro = ro;
     }
 
-    public int[] getTe() {
+    public Teacher[] getTe() {
         return te;
     }
 
-    public void setTe(int[] te) {
+    public void setTe(Teacher[] te) {
         this.te = te;
     }
 
-    public int[] getKl() {
+    public StudyGroup[] getKl() {
         return kl;
     }
 
-    public void setKl(int[] kl) {
+    public void setKl(StudyGroup[] kl) {
         this.kl = kl;
     }
 
     public Lesson unwrap(StudyGroup studyGroup) {
-        int subjectID = getSu()[0];
-        int roomID = getRo()[0];
-        int teacherID = getTe()[0];
+        Subject subject = getSu()[0];
+        Room room = getRo()[0];
+        Teacher teacherID = getTe()[0];
         Lesson lesson = new Lesson(getId(),getDate(),getStartTime(), getEndTime(),
-                subjectID, roomID, teacherID, studyGroup.getId());
+                subject.getId(), room.getId(), teacherID.getId(), studyGroup.getId());
         return lesson;
     }
 }

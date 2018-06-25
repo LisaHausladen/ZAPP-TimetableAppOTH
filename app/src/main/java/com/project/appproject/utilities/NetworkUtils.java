@@ -100,24 +100,21 @@ public class NetworkUtils {
 
     public void getLessons(StudyGroup studyGroup, Context context){
         startSession();
+        TimetableDatabase db = TimetableDatabase.getInstance(context);
         LessonWrapper[] lessonWrappers;
-        System.out.println("set breakpoints now");
         JSONObject params = new JSONObject();
         params.put("id", studyGroup.getId());
         params.put("type", 1);
         params.put("startDate", 20180618);
         params.put("endDate" , 20180622);
         Object data = getResponseData("getTimetable", params);
-        //TODO geht hier nicht weiter
-        //lessonWrappers = toJavaObject((com.alibaba.fastjson.JSON) data, LessonWrapper[].class);
-        System.out.println("Got data");
-        //TODO convert LessonWrapper to Lesson
-        /*Lesson[] lessons = new Lesson[lessonWrappers.length];
+        lessonWrappers = toJavaObject((com.alibaba.fastjson.JSON) data, LessonWrapper[].class);
+        Lesson[] lessons = new Lesson[lessonWrappers.length];
         for (int i = 0; i < lessonWrappers.length; i++) {
             LessonWrapper lessonWrapper = lessonWrappers[i];
             lessons[i] = lessonWrapper.unwrap(studyGroup);
-        }*/
-        //TimetableDatabase.getInstance(context).lessonDao().updateAll(lessons);
+        }
+        db.lessonDao().insertAll(lessons);
     }
 
     private Object getResponseData(String methodName, Object parameters) {

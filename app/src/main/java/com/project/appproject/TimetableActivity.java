@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,11 +20,21 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.project.appproject.database.Lesson;
 import com.project.appproject.database.StudyGroup;
 import com.project.appproject.database.TimetableDatabase;
 import com.project.appproject.utilities.NetworkUtils;
 
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+import static java.time.DayOfWeek.*;
 
 
 public class TimetableActivity extends AppCompatActivity {
@@ -118,8 +129,6 @@ public class TimetableActivity extends AppCompatActivity {
                 new ArrayList<>(TimetableDatabase.getInstance(this).studyGroupDao().getINStudyGroups());
         for (StudyGroup group : studyGroups) {
             if(group.getName().equals(studyGroup)) {
-                Toast toast = Toast.makeText(this, "group found:" + group.getId(), Toast.LENGTH_LONG);
-                toast.show();
                 new UpdateLessonDataTask().execute(group);
             }
         }
@@ -131,7 +140,98 @@ public class TimetableActivity extends AppCompatActivity {
 
     public void updateView(View view) {
         //erst klicken wenn Datenbank fertig
-        createLessonList();
+        //createLessonList();
+        ArrayList<Lesson> lessons =
+                new ArrayList<>(TimetableDatabase.getInstance(this).lessonDao().getAll());
+
+        for (Lesson lesson : lessons) {
+            TextView lessonTextView = getTextView(lesson);
+            if(lessonTextView != null) {
+                setSubjectLongName(lesson, lessonTextView);
+                //setSubjectName(lesson, lessonTextView);
+            }
+        }
+    }
+
+    private void setSubjectName(Lesson lesson, TextView lessonTextView) {
+        String subjectName = TimetableDatabase.getInstance(this).subjectDao().getSubjectNameById(lesson.getSubjectID());
+        lessonTextView.setText(subjectName);
+    }
+
+    private void setSubjectLongName(Lesson lesson, TextView lessonTextView) {
+        String subjectName = TimetableDatabase.getInstance(this).subjectDao().getSubjectLongNameById(lesson.getSubjectID());
+        lessonTextView.setText(subjectName);
+    }
+
+    private TextView getTextView(Lesson lesson) {
+        String weekday = getWeekday(lesson);
+        String lessonTime = getLessonTime(lesson);
+        if(weekday == null || lessonTime == null) {
+            return null;
+        }
+        String stringId = weekday.concat(lessonTime);
+        TextView lessonTextView = findViewById(R.id.mondayLesson1);
+        //TODO: ???
+        return lessonTextView;
+    }
+
+    private String getLessonTime(Lesson lesson) {
+        String startTime = lesson.getStartTime();
+        if(startTime.startsWith("08")) {
+            return "Lesson1";
+        }
+        if(startTime.startsWith("10")) {
+            return "Lesson2";
+        }
+        if(startTime.startsWith("11")) {
+            return "Lesson3";
+        }
+        if(startTime.startsWith("13")) {
+            return "Lesson4";
+        }
+        if(startTime.startsWith("15")) {
+            return "Lesson5";
+        }
+        if(startTime.startsWith("17")) {
+            return "Lesson6";
+        }
+        if(startTime.startsWith("18")) {
+            return "Lesson7";
+        }
+        return null;
+    }
+
+    @NonNull
+    private String getWeekday(Lesson lesson) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+        Date date = null;
+        try {
+            date = dateFormat.parse(lesson.getDate());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int dayofWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        String text = "";
+        switch (dayofWeek) {
+            case Calendar.MONDAY:
+                text += "monday";
+                break;
+            case Calendar.TUESDAY:
+                text += "tuesday";
+                break;
+            case Calendar.WEDNESDAY:
+                text += "wednesday";
+                break;
+            case Calendar.THURSDAY:
+                text += "thursday";
+                break;
+            case Calendar.FRIDAY:
+                text += "friday";
+                break;
+        }
+        return text;
     }
 
     private class SetupTimetableDataTask extends AsyncTask<Void, Void, Void> {

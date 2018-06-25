@@ -18,9 +18,4 @@ public class TimetableSettingsActivity extends TimetableActivity {
         setSupportActionBar(toolbar);
     }
 
-    public void changeStudyGroup(View view) {
-        Dialog dialog = onCreateDialog(savedInstanceState);
-        dialog.show();
-        // TODO createLessonList();
-    }
 }

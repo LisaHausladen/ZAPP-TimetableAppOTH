@@ -21,5 +21,11 @@ public interface SubjectDao {
 
     @Delete
     void delete(Subject subject);
+
+    @Query("SELECT name FROM subjects WHERE id = :subjectID")
+    String getSubjectNameById(int subjectID);
+
+    @Query("SELECT longName FROM subjects WHERE id = :subjectID")
+    String getSubjectLongNameById(int subjectID);
 }
 
