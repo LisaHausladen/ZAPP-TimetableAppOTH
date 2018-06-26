@@ -109,12 +109,16 @@ public class NetworkUtils {
         params.put("endDate" , 20180622);
         Object data = getResponseData("getTimetable", params);
         lessonWrappers = toJavaObject((com.alibaba.fastjson.JSON) data, LessonWrapper[].class);
-        Lesson[] lessons = new Lesson[lessonWrappers.length];
-        for (int i = 0; i < lessonWrappers.length; i++) {
-            LessonWrapper lessonWrapper = lessonWrappers[i];
-            lessons[i] = lessonWrapper.unwrap(studyGroup);
+        if(lessonWrappers.length == 0) {
+            System.out.println("no lessons found");
+        } else {
+            Lesson[] lessons = new Lesson[lessonWrappers.length];
+            for (int i = 0; i < lessonWrappers.length; i++) {
+                LessonWrapper lessonWrapper = lessonWrappers[i];
+                lessons[i] = lessonWrapper.unwrap(studyGroup);
+            }
+            db.lessonDao().insertAll(lessons);
         }
-        db.lessonDao().insertAll(lessons);
     }
 
     private Object getResponseData(String methodName, Object parameters) {

@@ -24,19 +24,16 @@ public class Lesson {
     private int subjectID;
     @ColumnInfo(name = "roomID")
     private int roomID;
-    @ColumnInfo(name = "teacherID")
-    private int teacherID;
     @ColumnInfo(name = "studyGroupID")
     private int studyGroupsID;
 
-    public Lesson(int id, String date, String startTime, String endTime, int subjectID, int roomID, int teacherID, int studyGroupsID) {
+    public Lesson(int id, String date, String startTime, String endTime, int subjectID, int roomID, int studyGroupsID) {
         this.id = id;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.subjectID = subjectID;
         this.roomID = roomID;
-        this.teacherID = teacherID;
         this.studyGroupsID = studyGroupsID;
     }
 
@@ -88,13 +85,6 @@ public class Lesson {
         this.roomID = roomID;
     }
 
-    public int getTeacherID() {
-        return teacherID;
-    }
-
-    public void setTeacherID(int teacherID) {
-        this.teacherID = teacherID;
-    }
 
     public int getStudyGroupsID() {
         return studyGroupsID;

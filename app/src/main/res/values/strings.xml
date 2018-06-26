@@ -24,10 +24,12 @@
     <string name="manageCourses">manage courses</string>
     <string name="manageExerciseCourses">manage excersize courses</string>
     <string name="importCourses">import courses</string>
-    <string name="longNames">long names</string>
-    <string name="shortNames">short names</string>
+    <string name="longNames">Use long names</string>
+    <string name="shortNames">Use short names</string>
     <string name="defaultNoGroup">no study group chosen</string>
     <string name="time">Time</string>
     <string name="semester_planer">Semester planer</string>
     <string name="change_study_group">Change study group</string>
+    <string name="display_options">Display options</string>
+    <string name="hide_room_number">Hide room numbers</string>
 </resources>

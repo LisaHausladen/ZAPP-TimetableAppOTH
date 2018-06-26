@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,7 +10,7 @@
         android:id="@+id/timetable_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/background_light"
+        android:background="@color/colorTimetableBackground"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
@@ -35,18 +36,14 @@
                     android:id="@+id/textViewStudyGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="18dp"
+                    android:layout_margin="10dp"
+                    android:layout_span="6"
                     android:text="@string/defaultNoGroup"
-                    android:layout_span="6"></TextView>
+                    android:textColor="@android:color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold"></TextView>
 
             </TableRow>
-
-            <View
-                android:id="@+id/divider4"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="?android:attr/listDivider" />
 
             <TableRow
                 android:id="@+id/tableRowDays"
@@ -55,45 +52,62 @@
 
                 <TextView
                     android:id="@+id/TextViewTime"
+                    android:layout_width="25dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
                     android:maxWidth="30dp"
-                    android:text="@string/time"></TextView>
-
-                <View
-                    android:id="@+id/divider6"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="?android:attr/listDivider" />
+                    android:minWidth="25dp"
+                    android:text="@string/time"
+                    android:textColor="@android:color/black"></TextView>
 
                 <TextView
                     android:id="@+id/TextViewDay1"
-                    android:text="@string/monday"
-                    android:minWidth="30dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
+                    android:gravity="center_horizontal"
 
+                    android:minWidth="30dp"
+                    android:text="@string/monday"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"></TextView>
+
                 <TextView
                     android:id="@+id/TextViewDay2"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
+                    android:gravity="center_horizontal"
                     android:text="@string/tuesday"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"></TextView>
+
                 <TextView
                     android:id="@+id/TextViewDay3"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
+                    android:gravity="center_horizontal"
                     android:text="@string/wednesday"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"></TextView>
+
                 <TextView
                     android:id="@+id/TextDay4"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
+                    android:gravity="center_horizontal"
                     android:text="@string/thursday"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/textDay5"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
+                    android:gravity="center_horizontal"
                     android:text="@string/friday"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"></TextView>
             </TableRow>
-
-            <View
-                android:id="@+id/divider5"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="?android:attr/listDivider" />
 
             <TableRow
                 android:layout_height="wrap_content"
@@ -102,40 +116,154 @@
 
                 <TextView
                     android:id="@+id/textViewLesson1"
+                    android:layout_width="25dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
                     android:maxWidth="30dp"
-                    android:text="08:15-09:45">
+                    android:text="08:15-09:45"
+                    android:textColor="@android:color/black">
 
                 </TextView>
 
-                <View
-                    android:id="@+id/divider7"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="?android:attr/listDivider" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/mondayLesson1"
-                    android:minWidth="30dp"
-                    android:gravity="center_horizontal"
-                    android:scrollHorizontally="false"
-                    android:text="-"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson1"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson1Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
 
-                <TextView
-                    android:text="-"
-                    android:id="@+id/tuesdayLesson1"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/wednesdayLesson1"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/thursdayLesson1"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/fridayLesson1"
-                    android:gravity="center_horizontal"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tuesdayLesson1"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/tuesdayLesson1Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/wednesdayLesson1"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/wednesdayLesson1Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/thursdayLesson1"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/thursdayLesson1Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/fridayLesson1"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/fridayLesson1Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
 
             </TableRow>
             <TableRow
@@ -145,36 +273,152 @@
 
                 <TextView
                     android:id="@+id/textViewLesson2"
+                    android:layout_width="25dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
                     android:maxWidth="30dp"
-                    android:text="10:00-11:30"></TextView>
+                    android:text="10:00-11:30"
+                    android:textColor="@android:color/black"></TextView>
 
-                <View
-                    android:id="@+id/divider8"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="?android:attr/listDivider" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/mondayLesson2"
-                    android:minWidth="30dp"
-                    android:gravity="center_horizontal"
-                    android:text="-"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/tuesdayLesson2"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/wednesdayLesson2"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/thursdayLesson2"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/fridayLesson2"
-                    android:gravity="center_horizontal"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson2"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson2Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tuesdayLesson2"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/tuesdayLesson2Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/wednesdayLesson2"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/wednesdayLesson2Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/thursdayLesson2"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/thursdayLesson2Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/fridayLesson2"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/fridayLesson2Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
 
             </TableRow>
             <TableRow
@@ -184,36 +428,152 @@
 
                 <TextView
                     android:id="@+id/textViewLesson3"
+                    android:layout_width="25dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
                     android:maxWidth="30dp"
-                    android:text="11:45-13:15"></TextView>
+                    android:text="11:45-13:15"
+                    android:textColor="@android:color/black"></TextView>
 
-                <View
-                    android:id="@+id/divider9"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="?android:attr/listDivider" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/mondayLesson3"
-                    android:minWidth="30dp"
-                    android:gravity="center_horizontal"
-                    android:text="-"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/tuesdayLesson3"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/wednesdayLesson3"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/thursdayLesson3"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/fridayLesson3"
-                    android:gravity="center_horizontal"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson3"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson3Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tuesdayLesson3"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/tuesdayLesson3Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/wednesdayLesson3"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/wednesdayLesson3Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/thursdayLesson3"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/thursdayLesson3Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/fridayLesson3"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/fridayLesson3Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
 
             </TableRow>
             <TableRow
@@ -223,36 +583,152 @@
 
                 <TextView
                     android:id="@+id/textViewLesson4"
+                    android:layout_width="25dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
                     android:maxWidth="30dp"
-                    android:text="13:30-15:00"></TextView>
+                    android:text="13:30-15:00"
+                    android:textColor="@android:color/black"></TextView>
 
-                <View
-                    android:id="@+id/divider10"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="?android:attr/listDivider" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/mondayLesson4"
-                    android:minWidth="30dp"
-                    android:gravity="center_horizontal"
-                    android:text="-"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/tuesdayLesson4"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/wednesdayLesson4"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/thursdayLesson4"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/fridayLesson4"
-                    android:gravity="center_horizontal"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson4"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson4Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tuesdayLesson4"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/tuesdayLesson4Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/wednesdayLesson4"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/wednesdayLesson4Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/thursdayLesson4"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/thursdayLesson4Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/fridayLesson4"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/fridayLesson4Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
 
             </TableRow>
             <TableRow
@@ -262,112 +738,461 @@
 
                 <TextView
                     android:id="@+id/textViewLesson5"
+                    android:layout_width="25dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
                     android:maxWidth="30dp"
-                    android:text="15:15-16:45"></TextView>
+                    android:text="15:15-16:45"
+                    android:textColor="@android:color/black"></TextView>
 
-                <View
-                    android:id="@+id/divider11"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="?android:attr/listDivider" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/mondayLesson5"
-                    android:minWidth="30dp"
-                    android:gravity="center_horizontal"
-                    android:text="-"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/tuesdayLesson5"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/wednesdayLesson5"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/thursdayLesson5"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/fridayLesson5"
-                    android:gravity="center_horizontal"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson5"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson5Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tuesdayLesson5"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/tuesdayLesson5Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/wednesdayLesson5"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/wednesdayLesson5Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/thursdayLesson5"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/thursdayLesson5Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/fridayLesson5"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/fridayLesson5Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
             </TableRow>
             <TableRow
                 android:layout_height="wrap_content"
                 android:id="@+id/tableRowLesson6"
                 android:layout_width="match_parent">
+
                 <TextView
-                    android:text="17:00-18:30"
                     android:id="@+id/textViewLesson6"
-                    android:maxWidth="30dp"></TextView>
+                    android:layout_width="25dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
+                    android:maxWidth="30dp"
+                    android:text="17:00-18:30"
+                    android:textColor="@android:color/black"></TextView>
 
-                <View
-                    android:id="@+id/divider12"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="?android:attr/listDivider" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/mondayLesson6"
-                    android:minWidth="30dp"
-                    android:gravity="center_horizontal"
-                    android:text="-"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/tuesdayLesson6"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/wednesdayLesson6"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/thursdayLesson6"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/fridayLesson6"
-                    android:gravity="center_horizontal"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson6"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson6Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tuesdayLesson6"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/tuesdayLesson6Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/wednesdayLesson6"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/wednesdayLesson6Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/thursdayLesson6"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/thursdayLesson6Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/fridayLesson6"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/fridayLesson6Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
 
             </TableRow>
             <TableRow
                 android:layout_height="wrap_content"
                 android:id="@+id/tableRowLesson7"
                 android:layout_width="match_parent">
+
                 <TextView
-                    android:text="18:45-20:15"
                     android:id="@+id/textViewLesson7"
-                    android:maxWidth="30dp"></TextView>
+                    android:layout_width="25dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorTableBackground"
+                    android:maxWidth="30dp"
+                    android:text="18:45-20:15"
+                    android:textColor="@android:color/black"></TextView>
 
-                <View
-                    android:id="@+id/divider13"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="?android:attr/listDivider" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/mondayLesson7"
-                    android:minWidth="30dp"
-                    android:gravity="center_horizontal"
-                    android:text="-"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/tuesdayLesson7"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/wednesdayLesson7"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/thursdayLesson7"
-                    android:gravity="center_horizontal"></TextView>
-                <TextView
-                    android:text="-"
-                    android:id="@+id/fridayLesson7"
-                    android:gravity="center_horizontal"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson7"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/mondayLesson7Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tuesdayLesson7"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/tuesdayLesson7Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/wednesdayLesson7"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/wednesdayLesson7Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/thursdayLesson7"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/thursdayLesson7Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/fridayLesson7"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+                    <TextView
+                        android:id="@+id/fridayLesson7Room"
+                        android:layout_margin="1dp"
+                        android:gravity="center_horizontal"
+                        android:minWidth="30dp"
+                        android:scrollHorizontally="false"
+                        android:text="-"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"></TextView>
+
+                </LinearLayout>
 
             </TableRow>
 
@@ -390,14 +1215,5 @@
         android:visibility="invisible"
         android:layout_margin="10dp"
         />
-    <TextView
-        android:id="@+id/taskTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_anchor="@id/taskProgressBar"
-        android:layout_gravity="bottom|center_horizontal"
-        app:layout_anchorGravity="bottom|center_horizontal"
-        android:textSize="20sp"
-        android:gravity="center_horizontal"/>
 
 </LinearLayout>

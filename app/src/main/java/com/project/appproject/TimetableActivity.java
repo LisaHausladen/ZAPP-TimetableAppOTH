@@ -25,16 +25,15 @@ import com.project.appproject.database.StudyGroup;
 import com.project.appproject.database.TimetableDatabase;
 import com.project.appproject.utilities.NetworkUtils;
 
-import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import static java.time.DayOfWeek.*;
+import static com.project.appproject.R.color.colorTimetableBackground;
+
 
 
 public class TimetableActivity extends AppCompatActivity {
@@ -54,7 +53,6 @@ public class TimetableActivity extends AppCompatActivity {
         toolbar.setTitle(R.string.timetable);
         setSupportActionBar(toolbar);
         taskProgressBar = findViewById(R.id.taskProgressBar);
-        taskTextView = findViewById(R.id.taskTextView);
         context = getApplicationContext();
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         studyGroup = prefs.getString(PREFS_KEY_STUDYGROUP, null);
@@ -108,7 +106,7 @@ public class TimetableActivity extends AppCompatActivity {
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final String[] groups = new String[] {"I1", "I2", "I3", "I4", "I5", "I6", "I7", "IM1", "IM2"};
+        final String[] groups = new String[] {"I1[A-K]", "I1[L-Z]", "I2", "I3", "I4", "I5", "I6", "I7"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.pick_studyCourse);
         builder.setSingleChoiceItems(groups, -1,
@@ -141,14 +139,19 @@ public class TimetableActivity extends AppCompatActivity {
     public void updateView(View view) {
         //erst klicken wenn Datenbank fertig
         //createLessonList();
+        drawLessons();
+    }
+
+    private void drawLessons() {
         ArrayList<Lesson> lessons =
                 new ArrayList<>(TimetableDatabase.getInstance(this).lessonDao().getAll());
 
         for (Lesson lesson : lessons) {
             TextView lessonTextView = getTextView(lesson);
             if(lessonTextView != null) {
-                setSubjectLongName(lesson, lessonTextView);
-                //setSubjectName(lesson, lessonTextView);
+                //setSubjectLongName(lesson, lessonTextView);
+                setSubjectName(lesson, lessonTextView);
+                lessonTextView.setBackgroundColor(getResources().getColor(colorTimetableBackground));
             }
         }
     }
@@ -170,14 +173,14 @@ public class TimetableActivity extends AppCompatActivity {
             return null;
         }
         String stringId = weekday.concat(lessonTime);
-        TextView lessonTextView = findViewById(R.id.mondayLesson1);
-        //TODO: ???
+        int id  = getResources().getIdentifier(stringId,"id", getPackageName());
+        TextView lessonTextView = findViewById(id);
         return lessonTextView;
     }
 
     private String getLessonTime(Lesson lesson) {
         String startTime = lesson.getStartTime();
-        if(startTime.startsWith("08")) {
+        if(startTime.startsWith("8")) {
             return "Lesson1";
         }
         if(startTime.startsWith("10")) {
@@ -213,25 +216,19 @@ public class TimetableActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         int dayofWeek = calendar.get(Calendar.DAY_OF_WEEK);
-        String text = "";
         switch (dayofWeek) {
             case Calendar.MONDAY:
-                text += "monday";
-                break;
+                return "monday";
             case Calendar.TUESDAY:
-                text += "tuesday";
-                break;
+                return  "tuesday";
             case Calendar.WEDNESDAY:
-                text += "wednesday";
-                break;
+                return  "wednesday";
             case Calendar.THURSDAY:
-                text += "thursday";
-                break;
+                return  "thursday";
             case Calendar.FRIDAY:
-                text += "friday";
-                break;
+                return "friday";
         }
-        return text;
+        return null;
     }
 
     private class SetupTimetableDataTask extends AsyncTask<Void, Void, Void> {
@@ -284,6 +281,8 @@ public class TimetableActivity extends AppCompatActivity {
             taskProgressBar.setVisibility(ProgressBar.INVISIBLE);
             Toast taskToast = Toast.makeText(context, "Finished lesson setup", Toast.LENGTH_SHORT);
             taskToast.show();
+            drawLessons();
+
         }
     }
 

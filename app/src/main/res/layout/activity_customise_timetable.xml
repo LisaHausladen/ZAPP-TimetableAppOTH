@@ -9,7 +9,7 @@
         android:id="@+id/customise_timetable_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/background_light"
+        android:background="@color/colorTimetableBackground"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
@@ -23,48 +23,40 @@
             android:id="@+id/manageCourses"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="3dp"
-            android:fontFamily="sans-serif-condensed"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white"
+            android:padding="10dp"
             android:text="@string/manageCourses"
             android:textAlignment="textStart"
             android:textAllCaps="false"
-            android:textSize="24sp" />
-
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
-            android:visibility="visible" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/manageExerciseCourses"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="3dp"
-            android:fontFamily="sans-serif-condensed"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white"
+            android:padding="10dp"
             android:text="@string/manageExerciseCourses"
             android:textAlignment="textStart"
             android:textAllCaps="false"
-            android:textSize="24sp" />
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
-            android:visibility="visible" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/importCourses"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="3dp"
-            android:fontFamily="sans-serif-condensed"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white"
+            android:padding="10dp"
             android:text="@string/importCourses"
             android:textAlignment="textStart"
             android:textAllCaps="false"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 </LinearLayout>

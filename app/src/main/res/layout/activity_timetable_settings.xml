@@ -9,7 +9,7 @@
         android:id="@+id/timetable_settings_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/background_light"
+        android:background="@color/colorTimetableBackground"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
@@ -18,9 +18,10 @@
         android:id="@+id/optionsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Anzeigeoptionen"
-        android:textSize="24sp" />
+        android:padding="10dp"
+        android:text="@string/display_options"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
 
     <View
         android:id="@+id/divider3"
@@ -36,30 +37,31 @@
             android:id="@+id/longNames"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="@string/longNames" />
+            android:text="@string/longNames"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/shortNames"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="@string/shortNames" />
+            android:text="@string/shortNames"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="sonstiges?" />
+            android:text="@string/hide_room_number"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/changeStudyGroupButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/background_light"
-        android:text="@string/change_study_group"
-        android:textAlignment="viewStart"
-        android:onClick="changeStudyGroup"/>
 </LinearLayout>

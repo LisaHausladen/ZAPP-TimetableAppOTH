@@ -84,9 +84,8 @@ public class LessonWrapper {
     public Lesson unwrap(StudyGroup studyGroup) {
         Subject subject = getSu()[0];
         Room room = getRo()[0];
-        Teacher teacherID = getTe()[0];
         Lesson lesson = new Lesson(getId(),getDate(),getStartTime(), getEndTime(),
-                subject.getId(), room.getId(), teacherID.getId(), studyGroup.getId());
+                subject.getId(), room.getId(), studyGroup.getId());
         return lesson;
     }
 }
