@@ -19,13 +19,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
         <TableLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/tableLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:shrinkColumns="*"
-            android:stretchColumns="*">
+            android:stretchColumns="1">
             <TableRow
                 android:id="@+id/tableRowHeader"
                 android:layout_height="wrap_content"
@@ -52,7 +55,9 @@
 
                 <TextView
                     android:id="@+id/TextViewTime"
-                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.6"
                     android:layout_margin="1dp"
                     android:background="@color/colorTableBackground"
                     android:maxWidth="30dp"
@@ -65,7 +70,9 @@
                     android:layout_margin="1dp"
                     android:background="@color/colorTableBackground"
                     android:gravity="center_horizontal"
-
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:minWidth="30dp"
                     android:text="@string/monday"
                     android:textColor="@android:color/black"
@@ -73,7 +80,9 @@
 
                 <TextView
                     android:id="@+id/TextViewDay2"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_margin="1dp"
                     android:background="@color/colorTableBackground"
                     android:gravity="center_horizontal"
@@ -83,7 +92,10 @@
 
                 <TextView
                     android:id="@+id/TextViewDay3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="1dp"
+                    android:layout_weight="1"
                     android:background="@color/colorTableBackground"
                     android:gravity="center_horizontal"
                     android:text="@string/wednesday"
@@ -93,6 +105,9 @@
                 <TextView
                     android:id="@+id/TextDay4"
                     android:layout_margin="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:background="@color/colorTableBackground"
                     android:gravity="center_horizontal"
                     android:text="@string/thursday"
@@ -102,6 +117,9 @@
                 <TextView
                     android:id="@+id/textDay5"
                     android:layout_margin="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:background="@color/colorTableBackground"
                     android:gravity="center_horizontal"
                     android:text="@string/friday"
@@ -109,14 +127,16 @@
                     android:textStyle="bold"></TextView>
             </TableRow>
 
-            <TableRow
+           <TableRow
                 android:layout_height="wrap_content"
                 android:id="@+id/tableRowLesson1"
                 android:layout_width="match_parent">
 
                 <TextView
                     android:id="@+id/textViewLesson1"
-                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.6"
                     android:layout_margin="1dp"
                     android:background="@color/colorTableBackground"
                     android:maxWidth="30dp"
@@ -126,24 +146,29 @@
                 </TextView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/mondayLesson1"
-                        android:layout_margin="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
-                        android:textColor="@android:color/black"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"></TextView>
+                        android:textColor="@android:color/black"></TextView>
                     <TextView
                         android:id="@+id/mondayLesson1Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -154,13 +179,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tuesdayLesson1"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -170,8 +199,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/tuesdayLesson1Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -182,13 +212,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/wednesdayLesson1"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -198,8 +232,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/wednesdayLesson1Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -210,13 +245,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/thursdayLesson1"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -226,8 +265,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/thursdayLesson1Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -238,13 +278,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/fridayLesson1"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -254,8 +298,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/fridayLesson1Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -273,21 +318,26 @@
 
                 <TextView
                     android:id="@+id/textViewLesson2"
-                    android:layout_width="25dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="1dp"
+                    android:layout_weight="0.6"
                     android:background="@color/colorTableBackground"
-                    android:maxWidth="30dp"
                     android:text="10:00-11:30"
                     android:textColor="@android:color/black"></TextView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/mondayLesson2"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -297,8 +347,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/mondayLesson2Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -309,13 +360,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tuesdayLesson2"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -325,8 +380,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/tuesdayLesson2Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -337,13 +393,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/wednesdayLesson2"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -353,8 +413,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/wednesdayLesson2Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -365,13 +426,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/thursdayLesson2"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -381,8 +446,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/thursdayLesson2Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -393,13 +459,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/fridayLesson2"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -409,7 +479,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/fridayLesson2Room"
-                        android:layout_margin="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -428,105 +500,131 @@
 
                 <TextView
                     android:id="@+id/textViewLesson3"
-                    android:layout_width="25dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="1dp"
+                    android:layout_weight="0.6"
                     android:background="@color/colorTableBackground"
-                    android:maxWidth="30dp"
                     android:text="11:45-13:15"
                     android:textColor="@android:color/black"></TextView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/mondayLesson3"
-                        android:layout_margin="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
                         android:textColor="@android:color/black"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"></TextView>
+                        android:textSize="16sp"></TextView>
+
                     <TextView
                         android:id="@+id/mondayLesson3Room"
-                        android:layout_margin="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
-                        android:textColor="@android:color/black"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"></TextView>
+                        android:textColor="@android:color/black"></TextView>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tuesdayLesson3"
-                        android:layout_margin="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
-                        android:textColor="@android:color/black"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"></TextView>
+                        android:textColor="@android:color/black"></TextView>
+
                     <TextView
                         android:id="@+id/tuesdayLesson3Room"
-                        android:layout_margin="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
-                        android:textColor="@android:color/black"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"></TextView>
+                        android:textColor="@android:color/black"></TextView>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/wednesdayLesson3"
-                        android:layout_margin="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
-                        android:textColor="@android:color/black"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"></TextView>
+                        android:textColor="@android:color/black"></TextView>
+
                     <TextView
                         android:id="@+id/wednesdayLesson3Room"
-                        android:layout_margin="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
-                        android:textColor="@android:color/black"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"></TextView>
+                        android:textColor="@android:color/black"></TextView>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/thursdayLesson3"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -536,7 +634,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/thursdayLesson3Room"
-                        android:layout_margin="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -548,13 +648,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/fridayLesson3"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -564,7 +668,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/fridayLesson3Room"
-                        android:layout_margin="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -583,21 +689,26 @@
 
                 <TextView
                     android:id="@+id/textViewLesson4"
-                    android:layout_width="25dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="1dp"
+                    android:layout_weight="0.6"
                     android:background="@color/colorTableBackground"
-                    android:maxWidth="30dp"
                     android:text="13:30-15:00"
                     android:textColor="@android:color/black"></TextView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/mondayLesson4"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -607,7 +718,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/mondayLesson4Room"
-                        android:layout_margin="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -619,13 +732,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tuesdayLesson4"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -635,8 +752,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/tuesdayLesson4Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -647,13 +765,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/wednesdayLesson4"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -663,8 +785,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/wednesdayLesson4Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -675,13 +798,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/thursdayLesson4"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -691,8 +818,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/thursdayLesson4Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -703,13 +831,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/fridayLesson4"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -719,8 +851,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/fridayLesson4Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -738,21 +871,26 @@
 
                 <TextView
                     android:id="@+id/textViewLesson5"
-                    android:layout_width="25dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="1dp"
+                    android:layout_weight="0.6"
                     android:background="@color/colorTableBackground"
-                    android:maxWidth="30dp"
                     android:text="15:15-16:45"
                     android:textColor="@android:color/black"></TextView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/mondayLesson5"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -762,8 +900,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/mondayLesson5Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -774,13 +913,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tuesdayLesson5"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -790,8 +933,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/tuesdayLesson5Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -802,13 +946,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/wednesdayLesson5"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -818,8 +966,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/wednesdayLesson5Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -830,13 +979,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/thursdayLesson5"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -846,8 +999,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/thursdayLesson5Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -858,13 +1012,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/fridayLesson5"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -874,8 +1032,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/fridayLesson5Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -892,21 +1051,26 @@
 
                 <TextView
                     android:id="@+id/textViewLesson6"
-                    android:layout_width="25dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="1dp"
+                    android:layout_weight="0.6"
                     android:background="@color/colorTableBackground"
-                    android:maxWidth="30dp"
                     android:text="17:00-18:30"
                     android:textColor="@android:color/black"></TextView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/mondayLesson6"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -916,7 +1080,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/mondayLesson6Room"
-                        android:layout_margin="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -928,13 +1094,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tuesdayLesson6"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -944,8 +1114,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/tuesdayLesson6Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -956,13 +1127,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/wednesdayLesson6"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -972,8 +1147,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/wednesdayLesson6Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -984,13 +1160,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/thursdayLesson6"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -1000,8 +1180,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/thursdayLesson6Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -1012,13 +1193,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/fridayLesson6"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -1028,8 +1213,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/fridayLesson6Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -1047,21 +1233,26 @@
 
                 <TextView
                     android:id="@+id/textViewLesson7"
-                    android:layout_width="25dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="1dp"
+                    android:layout_weight="0.6"
                     android:background="@color/colorTableBackground"
-                    android:maxWidth="30dp"
                     android:text="18:45-20:15"
                     android:textColor="@android:color/black"></TextView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/mondayLesson7"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -1071,8 +1262,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/mondayLesson7Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -1083,13 +1275,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tuesdayLesson7"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -1099,8 +1295,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/tuesdayLesson7Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -1111,13 +1308,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/wednesdayLesson7"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -1127,8 +1328,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/wednesdayLesson7Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -1139,13 +1341,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/thursdayLesson7"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -1155,8 +1361,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/thursdayLesson7Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -1167,13 +1374,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/fridayLesson7"
-                        android:layout_margin="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:textSize="16sp"
                         android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
@@ -1183,8 +1394,9 @@
                         android:layout_width="match_parent"></TextView>
                     <TextView
                         android:id="@+id/fridayLesson7Room"
-                        android:layout_margin="1dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"                        android:gravity="center_horizontal"
                         android:minWidth="30dp"
                         android:scrollHorizontally="false"
                         android:text="-"
@@ -1198,14 +1410,9 @@
 
         </TableLayout>
 
-    </ScrollView>
+        </HorizontalScrollView>
 
-    <Button
-        android:id="@+id/buttonUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Press to update"
-        android:onClick="updateView"/>
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/taskProgressBar"

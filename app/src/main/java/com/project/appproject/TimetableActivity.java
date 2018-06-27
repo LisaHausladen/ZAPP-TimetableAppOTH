@@ -37,11 +37,12 @@ import static com.project.appproject.R.color.colorTimetableBackground;
 
 
 public class TimetableActivity extends AppCompatActivity {
-    String studyGroup;
+    private String studyGroup;
     SharedPreferences prefs;
     private Context context;
     private ProgressBar taskProgressBar;
-    private TextView taskTextView;
+    private boolean lessonsLoaded;
+    private boolean databaseLoaded;
 
     private static final String PREFS_KEY_STUDYGROUP = "currentStudyGroup";
 
@@ -57,9 +58,18 @@ public class TimetableActivity extends AppCompatActivity {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         studyGroup = prefs.getString(PREFS_KEY_STUDYGROUP, null);
         if(studyGroup == null) {
+            lessonsLoaded = false;
+            databaseLoaded = false;
             new SetupTimetableDataTask().execute();
-            onCreateDialog(savedInstanceState).show();
+            Dialog dialog = onCreateDialog(savedInstanceState);
+            dialog.show();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        drawLessons();
         updateStudyGroup();
     }
 
@@ -68,8 +78,6 @@ public class TimetableActivity extends AppCompatActivity {
         if(studyGroup != null && pickedStudyGroupText != null) {
             pickedStudyGroupText.setText(studyGroup);
         }
-        Toast toast = Toast.makeText(this, "you chose:" + studyGroup, Toast.LENGTH_SHORT);
-        toast.show();
     }
 
     private void saveStudyGroup() {
@@ -90,18 +98,13 @@ public class TimetableActivity extends AppCompatActivity {
                 Intent intent1 = new Intent(this, TimetableSettingsActivity.class);
                 startActivity(intent1);
                 return true;
-
             case R.id.action_customise_timetable:
                 // Show new activity "customise timetable"
                 Intent intent2 = new Intent(this, CustomiseTimetableActivity.class);
                 startActivity(intent2);
                 return true;
-
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
     }
 
@@ -117,6 +120,9 @@ public class TimetableActivity extends AppCompatActivity {
                                 dialog.dismiss();
                                 saveStudyGroup();
                                 updateStudyGroup();
+                                if(databaseLoaded && !lessonsLoaded) {
+                                    createLessonList();
+                                }
                         }});
 
         return builder.create();
@@ -136,29 +142,47 @@ public class TimetableActivity extends AppCompatActivity {
         }
     }
 
-    public void updateView(View view) {
-        //erst klicken wenn Datenbank fertig
-        //createLessonList();
-        drawLessons();
-    }
-
     private void drawLessons() {
         ArrayList<Lesson> lessons =
                 new ArrayList<>(TimetableDatabase.getInstance(this).lessonDao().getAll());
 
         for (Lesson lesson : lessons) {
-            TextView lessonTextView = getTextView(lesson);
+            TextView lessonTextView = getTextView(lesson, false);
             if(lessonTextView != null) {
-                //setSubjectLongName(lesson, lessonTextView);
-                setSubjectName(lesson, lessonTextView);
+                //set subjects
+                boolean useShortNames = prefs.getBoolean(TimetableSettingsActivity.PREFS_KEY_SHORT_NAMES, true);
+                if (useShortNames) {
+                    setSubjectName(lesson, lessonTextView);
+                } else {
+                    setSubjectLongName(lesson, lessonTextView);
+                }
+                //set background color
+                lessonTextView.setBackgroundColor(getResources().getColor(colorTimetableBackground));
+            }
+            lessonTextView = getTextView(lesson, true);
+            if(lessonTextView != null) {
+                //set rooms
+                boolean hideRooms = prefs.getBoolean(TimetableSettingsActivity.PREFS_KEY_HIDE_ROOMS, false);
+                if(hideRooms) {
+                    lessonTextView.setText("");
+                } else {
+                    setRoom(lesson, lessonTextView);
+                }
+                //set background color
                 lessonTextView.setBackgroundColor(getResources().getColor(colorTimetableBackground));
             }
         }
     }
 
+    private void setRoom(Lesson lesson, TextView lessonTextView) {
+        String room = TimetableDatabase.getInstance(this).roomDao().getRoomById(lesson.getRoomID());
+        lessonTextView.setText(room);
+    }
+
     private void setSubjectName(Lesson lesson, TextView lessonTextView) {
         String subjectName = TimetableDatabase.getInstance(this).subjectDao().getSubjectNameById(lesson.getSubjectID());
-        lessonTextView.setText(subjectName);
+        String name = subjectName.substring(3);
+        lessonTextView.setText(name);
     }
 
     private void setSubjectLongName(Lesson lesson, TextView lessonTextView) {
@@ -166,13 +190,16 @@ public class TimetableActivity extends AppCompatActivity {
         lessonTextView.setText(subjectName);
     }
 
-    private TextView getTextView(Lesson lesson) {
+    private TextView getTextView(Lesson lesson, boolean isRoomTextView) {
         String weekday = getWeekday(lesson);
         String lessonTime = getLessonTime(lesson);
         if(weekday == null || lessonTime == null) {
             return null;
         }
         String stringId = weekday.concat(lessonTime);
+        if(isRoomTextView) {
+            stringId = stringId.concat("Room");
+        }
         int id  = getResources().getIdentifier(stringId,"id", getPackageName());
         TextView lessonTextView = findViewById(id);
         return lessonTextView;
@@ -242,11 +269,6 @@ public class TimetableActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             new NetworkUtils().setup(context);
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             return null;
         }
 
@@ -254,10 +276,12 @@ public class TimetableActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             taskProgressBar.setVisibility(ProgressBar.INVISIBLE);
-            Toast taskToast = Toast.makeText(context, "Finished loading", Toast.LENGTH_SHORT);
+            Toast taskToast = Toast.makeText(context, "Finished loading database", Toast.LENGTH_SHORT);
             taskToast.show();
-            if(studyGroup != null)
-            createLessonList();
+            databaseLoaded = true;
+            if(studyGroup != null) {
+                createLessonList();
+            }
         }
     }
 
@@ -282,7 +306,7 @@ public class TimetableActivity extends AppCompatActivity {
             Toast taskToast = Toast.makeText(context, "Finished lesson setup", Toast.LENGTH_SHORT);
             taskToast.show();
             drawLessons();
-
+            lessonsLoaded = true;
         }
     }
 

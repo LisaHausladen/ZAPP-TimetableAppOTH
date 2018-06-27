@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/timetable_settings_toolbar"
@@ -41,7 +41,8 @@
             android:layout_weight="1"
             android:text="@string/longNames"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:onClick="onRadioButtonClicked"/>
 
         <RadioButton
             android:id="@+id/shortNames"
@@ -51,17 +52,26 @@
             android:layout_weight="1"
             android:text="@string/shortNames"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:onClick="onRadioButtonClicked" />
 
-        <RadioButton
-            android:id="@+id/radioButton2"
+    </RadioGroup>
+
+    <View
+        android:id="@+id/dividerRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+        <CheckBox
+            android:id="@+id/hideRooms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/hide_room_number"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
-    </RadioGroup>
+            android:textSize="18sp"
+            android:onClick="hideRooms"/>
 
 </LinearLayout>

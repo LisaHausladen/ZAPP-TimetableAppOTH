@@ -59,7 +59,7 @@ public class NetworkUtils {
         JSONObject params = new JSONObject();
         params.put("user", "gast");
         params.put("password", "");
-        params.put("client", "BNVWSPVZZHR75XN4");
+        params.put("client", "BLJF7K73WOMOGXAX");
         String json = buildJSONString("ID", "authenticate", params);
         try {
             response = post(URL, json);

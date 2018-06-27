@@ -21,4 +21,7 @@ public interface RoomDao {
 
     @Delete
     void delete(Room room);
+
+    @Query("SELECT name FROM rooms WHERE id = :roomID")
+    String getRoomById(int roomID);
 }
